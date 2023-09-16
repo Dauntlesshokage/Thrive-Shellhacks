@@ -8,6 +8,7 @@ export default function Navbar(){
             <div className='navitems'>  
                 <h3>Contact</h3>
                 <h3>About</h3>
+                <h3>FAQs</h3>
                 <h3>Resources</h3>
                 <h3>Home</h3>
                 

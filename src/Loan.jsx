@@ -5,7 +5,7 @@ export default function Loan(){
         loanamount:0,
         loanterm:0,
         interest:0,
-        paid:0
+        totalpaid:0
     
     })
     function handleChange(event){
@@ -23,10 +23,13 @@ export default function Loan(){
     }
     function handleSubmit(event){
         event.preventDefault()
-        const tobepaid=(loanDetails.loanamount*loanDetails.loanterm*loanDetails.interest)/1200
+        const monthlyInterestRate=(loanDetails.interest/100)/12
+        console.log(monthlyInterestRate)
+        const numberOfPayments=loanDetails.loanterm*12
+        const tobepaid=Math.floor((loanDetails.loanamount)*monthlyInterestRate*Math.pow(1+monthlyInterestRate,numberOfPayments)/(Math.pow(1+monthlyInterestRate,numberOfPayments)-1))
         setLoanDetails(prevData=>({
             ...prevData,
-            paid:tobepaid
+            totalpaid:tobepaid
         }))
         
     }
@@ -67,9 +70,10 @@ export default function Loan(){
             onChange={handleChange}
             id='interest'
             ></input>
-            <h3>Interest paid monthly : {loanDetails.paid}</h3>
+            <h3>Interest paid monthly : ${loanDetails.totalpaid} </h3>
+            <h4>Total Loan to be paid</h4>
         </div>
-        <button type='submit'>Calculate</button>
+        <button>Calculate</button>
     </form>
     )
 }
