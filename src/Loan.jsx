@@ -36,42 +36,46 @@ export default function Loan(){
     return (
      <form onSubmit={handleSubmit}>    
         <div className='Loan'>
+            <div>
             <label htmlFor='loanamount'>Loan Amount</label>
             <br/>
             <input 
-            type='text'
-            name='loanamount'
-            value={loanDetails.loanamount}
-            placeholder='Enter Loan amount'
-            onChange={handleChange}
-            id='loanamount'
+                type='text'
+                name='loanamount'
+                value={loanDetails.loanamount}
+                placeholder='Enter Loan amount'
+                onChange={handleChange}
+                id='loanamount'
             ></input>
             <br/>
             <br/>
             <label htmlFor='loanterm'>Loan Term</label>
             <br/>
             <input 
-            type='text'
-            name='loanterm'
-            value={loanDetails.loanterm}
-            placeholder='Enter loan Term'
-            onChange={handleChange}
-            id='loanterm'
+                type='text'
+                name='loanterm'
+                value={loanDetails.loanterm}
+                placeholder='Enter loan Term'
+                onChange={handleChange}
+                id='loanterm'
             ></input>
             <br/>
             <br/>
             <label htmlFor='interest'>Interest rate </label>
             <br/>
             <input 
-            type='text'
-            name='interest'
-            value={loanDetails.interest}
-            placeholder='Enter loan Term'
-            onChange={handleChange}
-            id='interest'
+                type='text'
+                name='interest'
+                value={loanDetails.interest}
+                placeholder='Enter loan Term'
+                onChange={handleChange}
+                id='interest'
             ></input>
+            </div>
+            <div>
             <h3>Interest paid monthly : ${loanDetails.totalpaid} </h3>
             <h4>Total Loan to be paid</h4>
+            </div>
         </div>
         <button>Calculate</button>
     </form>
