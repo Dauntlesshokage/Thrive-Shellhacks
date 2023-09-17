@@ -49,6 +49,7 @@ export default function Loan(){
      <h1 className='loantitle'>Try this loan calculator</h1>
      <p>Enter your loan information to calculate how much you would need to pay each month</p>
         <div className='Loan'>
+            <center><h1>Resources</h1></center>
             <div className='loandetails'>
             <label htmlFor='loanamount'><h3>Loan Amount</h3></label>
             <input 

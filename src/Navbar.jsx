@@ -10,6 +10,12 @@ export default function Navbar(){
               <Link activeClass="active" smooth spy to="Home">
                 HOME
               </Link>
+              
+            </li>
+            <li>
+              <Link activeClass="active" smooth spy to="About">
+                ABOUT
+              </Link>
             </li>
             <li>
               <Link activeClass="active" smooth spy to="Resources">
@@ -19,11 +25,6 @@ export default function Navbar(){
             <li>
               <Link activeClass="active" smooth spy to="FAQ">
                 FAQ
-              </Link>
-            </li>
-            <li>
-              <Link activeClass="active" smooth spy to="About">
-                ABOUT
               </Link>
             </li>
             <li>
