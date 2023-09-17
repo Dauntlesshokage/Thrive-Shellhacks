@@ -1,19 +1,19 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import Navbar from './Navbar.jsx'
 import Loan from './Loan.jsx'
 import Faq from './Faq.jsx'
 import questions from './questions.js'
 import Quiz from './Quiz.jsx'
+import Home from './Home.jsx'
+
 export default function App() {
   const [count, setCount] = useState(0)
   const [faqData, setFaqData]=useState(questions.data.faq)
   const questionArray=faqData.map(faqItem =>{
     return(
     <div key={faqItem.id}>
-      <h3>{faqItem.question}</h3>
-      <p>{faqItem.answer}</p>
+      <h2 className='questionBox'>{faqItem.question}</h2>
+      <p className='answerBox'>{faqItem.answer}</p>
     </div>
   )
   })
@@ -23,10 +23,11 @@ export default function App() {
   return (
       <div>
         <Navbar />
-        <Loan />
-        <Faq question={questionArray}/> 
+        <section id="Home"><Home/></section>
+        <section id="Resources"><Loan />
         <Quiz/>
-         
+        </section>
+        <section id="FAQ"><Faq question={questionArray}/></section>
       </div>   
       
   )

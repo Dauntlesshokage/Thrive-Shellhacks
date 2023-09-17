@@ -2,22 +2,144 @@
 :root{
   font-family: 'Poppins', sans-serif;
 }
+.label{
+  font-size: 100px;
+}
+.nav {
+	display: flex;
+	align-items: center;
+	position: -webkit-sticky;
+	position: sticky;
+	top: -5px;
+	z-index: 2;
+	height: 100px;
+	min-height: 70px;
+	width: calc(100% - 1.5rem);
+	background-color: #fff;
+	padding: 0 1rem;
+	box-shadow: 0 0.125rem 0.25rem 0 rgb(0 0 0 / 11%);
+}
+::placeholder{
+  font-family: 'Poppins', sans-serif;
+}
+form> p{
+  font-size: 20px;
+}
+.loanform{
+  padding-top: 3%;
+}
+.Loan{
+  overflow: hidden;
+  height: 600px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  overflow: auto;
+}
+.loanoutput{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  height: 80%;
+  background-color: #dbd1d1;
+  width: 40%;
+}
+.loandetails{
+  background-color: #ffffff;
+  padding-left: 20px;
+  width:40%;
+  height: 80%;
+  padding-right: 60px;
+}
+.loandetails>button{
+ 
+  border-radius: 8px;
+  border: 1px solid transparent;
+  font-size: 1em;
+  font-weight: 500;
+  background-color: rgb(100, 108, 255);
+  box-shadow: 10px 10px 30px 0px rgb(100, 108, 255);
+  cursor: pointer;
+  /* transition: border-color 0.25s; */
+  color: white;
+  height: 56px;
+}
+.loandetails >input{
+  min-width: 100%;
+  height: 56px;
+  position: relative;
+  padding: 0px 16px;
+  border: none;
+  border-radius: 4px;
+  font-family: 'Gotham SSm A', 'Gotham SSm B', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: normal;
+  background-color:white;
+  color: #282828;
+  outline: none;
+  box-shadow: 0px 20px 40px 1px rgb(165, 153, 153);
+  transition: 0.3s background-color ease-in-out, 0.3s box-shadow ease-in-out, 0.1s padding ease-in-out;
+ 
+}
 button {
   border-radius: 8px;
-  border: 1px solid black;
+  border: 1px solid transparent;
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #2e4ac9;
+  background-color: rgb(100, 108, 255);
   cursor: pointer;
   transition: border-color 0.25s;
+  color: white;
 }
-/* html{
+html{
   scroll-behavior: smooth;
-} */
+}
+.questionBox{
+  border: 0.5px solid transparent;
+  border-radius: 5px;
+  padding-left: 1%;
+  
+}
+.label{
+  font-size: 50px;
+}
+.questionBox:hover{
+  box-shadow: 10px 10px 42px 0px rgb(100, 108, 255);
+  background-color: rgb(100, 108, 255);
+  color: white;
+}
 
-.navitems{
+.answerBox{
+  border: 0.5px solid transparent;
+  border-radius: 5px;
+  padding-left: 1%;
+}
+p{
+  font-size: 18.5px;
+}
+.answerBox:hover{
+  box-shadow: 10px 10px 42px 0px rgb(100, 108, 255);
+  background-color: rgb(100, 108, 255);
+  color: white;
+}
+.loandetails>button:hover{
+  box-shadow: 20px 10px 50px 0px rgb(100, 108, 255);
+}
+.Loan > input{
+  font-family: 'Poppins', sans-serif;
+  height: 50px;
+}
+.Loan >input:hover{
+  box-shadow: 10px 10px 42px 0px rgba(0, 0, 0, 0.75);
+}
+/* .navitems{
   justify-items: center;
   padding-right: 10px;
   display: flex;
@@ -25,29 +147,88 @@ button {
   flex-wrap: wrap;
   gap: 10px;
   
-}
+} */
 .navtitle{
   display: flex;
   align-items: center;
   margin-right: auto;
 }
+.loantitle{
+  font-size: 40px;
+}
 .Navbar{
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  height: 50px;
+  height: 0px;
   width: 100%;
   color: #394c5c;
-  background-color: #dbd8d8;
-  background-image: url("C:\Users\anant\shellhacks\src\assets\mountains.jpg");
+ 
+}
+.Home{
+  background: url(".\assets\century-tower.jpg");
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-left:10%;
+  padding-top: 5%;
+  margin-top: 3.8vw;
+  
+}
+.Home>h1{
+  color: white;
+  font-size: 5.2vw;
+}
+.nav {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+  gap: 2rem;
+  padding: 0 1rem;
+  position: fixed;
+  background-color: #181616;
+  background-image: url("./assets/windows.jpg");
+  padding-right: 1%;
+}
+.nav ul{
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  display: flex;
+  gap:1rem;
+  font-size: 30px;
+  color: white;
+}
+.nav ul:hover{
+  cursor: pointer;
+}
+.title{
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 60px;
+  font-weight: bold;
+  
 }
 button:hover {
   border-color: #646cff;
 }
-button:focus,
+.faqtitle{
+  padding-left: 1%;
+  font-size: 40px;
+}
+.faqcontainer{
+  padding-top: 3%;
+}
+.card{
+  width: 20rem;
+  border-radius: 5px;
+  box-shadow: 20px 10px 50px 0px rgb(100, 108, 255);
+  display: flex;
+  flex-direction: column ;
+  
+}
+/* button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
-}
+} */
 
 /* @media (prefers-color-scheme: light) {
   :root {

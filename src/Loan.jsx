@@ -2,10 +2,11 @@ import {useState} from 'react'
 
 export default function Loan(){
     const [loanDetails,setLoanDetails]=useState({
-        loanamount:0,
-        loanterm:0,
-        interest:0,
-        totalpaid:0
+        loanamount:'',
+        loanterm:'',
+        interest:'',
+        totalpaid:'0',
+        totaldue:'0'
     
     })
     function handleChange(event){
@@ -23,24 +24,35 @@ export default function Loan(){
     }
     function handleSubmit(event){
         event.preventDefault()
-        const monthlyInterestRate=(loanDetails.interest/100)/12
-        console.log(monthlyInterestRate)
-        const numberOfPayments=loanDetails.loanterm*12
-        const tobepaid=Math.floor((loanDetails.loanamount)*monthlyInterestRate*Math.pow(1+monthlyInterestRate,numberOfPayments)/(Math.pow(1+monthlyInterestRate,numberOfPayments)-1))
-        setLoanDetails(prevData=>({
-            ...prevData,
-            totalpaid:tobepaid
-        }))
-        
+        if(loanDetails.interest===''||loanDetails.loanamount===''||loanDetails.loanterm===''){
+            setLoanDetails(prevData=>({
+                ...prevData,
+                totalpaid:0,
+                totaldue:0
+            }))
+        }
+        else{
+            const monthlyInterestRate=(loanDetails.interest/100)/12
+            console.log(monthlyInterestRate)
+            const numberOfPayments=loanDetails.loanterm*12
+            const tobepaid=Math.floor((loanDetails.loanamount)*monthlyInterestRate*Math.pow(1+monthlyInterestRate,numberOfPayments)/(Math.pow(1+monthlyInterestRate,numberOfPayments)-1))
+            const totdue=+loanDetails.loanamount+(+(loanDetails.totalpaid*12*loanDetails.loanterm))
+            setLoanDetails(prevData=>({
+                ...prevData,
+                totalpaid:tobepaid,
+                totaldue:totdue
+            }))
+        }
     }
     return (
-     <form onSubmit={handleSubmit}>    
+     <form className="loanform"onSubmit={handleSubmit}>    
+     <h1 className='loantitle'>Try this loan calculator</h1>
+     <p>Enter your loan information to calculate how much you would need to pay each month</p>
         <div className='Loan'>
-            <div>
-            <label htmlFor='loanamount'>Loan Amount</label>
-            <br/>
+            <div className='loandetails'>
+            <label htmlFor='loanamount'><h3>Loan Amount</h3></label>
             <input 
-                type='text'
+                type='number'
                 name='loanamount'
                 value={loanDetails.loanamount}
                 placeholder='Enter Loan amount'
@@ -48,36 +60,40 @@ export default function Loan(){
                 id='loanamount'
             ></input>
             <br/>
-            <br/>
-            <label htmlFor='loanterm'>Loan Term</label>
-            <br/>
+            <label htmlFor='loanterm'><h3>Loan Term</h3></label>
             <input 
                 type='text'
                 name='loanterm'
                 value={loanDetails.loanterm}
-                placeholder='Enter loan Term'
+                placeholder='Enter Loan Term'
                 onChange={handleChange}
                 id='loanterm'
             ></input>
             <br/>
-            <br/>
-            <label htmlFor='interest'>Interest rate </label>
-            <br/>
+            <label htmlFor='interest'><h3>Interest rate </h3></label>
             <input 
                 type='text'
                 name='interest'
                 value={loanDetails.interest}
-                placeholder='Enter loan Term'
+                placeholder='Enter Loan Term'
                 onChange={handleChange}
                 id='interest'
             ></input>
+            <br/>
+            <br/>
+            
+            
+            <button>Calculate</button>
             </div>
-            <div>
-            <h3>Interest paid monthly : ${loanDetails.totalpaid} </h3>
-            <h4>Total Loan to be paid</h4>
+            <div className='loanoutput'>
+                <div>
+                    <h1>Interest paid monthly : ${loanDetails.totalpaid} </h1>
+                    <h4>Total Loan to be paid :${loanDetails.totaldue}</h4>
+                </div>
             </div>
+            
         </div>
-        <button>Calculate</button>
+        
     </form>
     )
 }

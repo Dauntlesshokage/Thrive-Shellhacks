@@ -1,19 +1,39 @@
 import React from 'react'
-
+import { Link, Button, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
 export default function Navbar(){
     return(
        
-        <div className="Navbar"> 
-            <h2 className='navtitle'>Thrive</h2>
-            <div className='navitems'>  
-                <h3>Contact</h3>
-                <h3>About</h3>
-                <h3>FAQs</h3>
-                <h3>Resources</h3>
-                <h3>Home</h3>
-                
-            </div>
-        </div>
+        <nav className='nav'>
+            <a href="/" className='title'>Thrive</a>
+            <ul>
+            <li>
+              <Link activeClass="active" smooth spy to="Home">
+                HOME
+              </Link>
+            </li>
+            <li>
+              <Link activeClass="active" smooth spy to="Resources">
+                RESOURCES
+              </Link>
+            </li>
+            <li>
+              <Link activeClass="active" smooth spy to="FAQ">
+                FAQ
+              </Link>
+            </li>
+            <li>
+              <Link activeClass="active" smooth spy to="About">
+                ABOUT
+              </Link>
+            </li>
+            <li>
+              <Link activeClass="active" smooth spy to="contact">
+                CONTACT 
+              </Link>
+            </li>
+            </ul>
+
+        </nav>
             
        
         

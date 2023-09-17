@@ -6,7 +6,8 @@ export default function Faq(props){
     
    
     return(
-        <div>
+        <div className='faqcontainer'>
+           <h1 className='faqtitle'>Frequently Asked Questions</h1> 
            {props.question}
          
         </div>
